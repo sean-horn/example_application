@@ -17,7 +17,7 @@
 # limitations under the License.
 #
 
-actions :add, :remove
+actions :add, :remove, :update
 
 #name of the repo, used for .repo filename
 attribute :repo_name, :kind_of => String, :name_attribute => true
@@ -29,6 +29,8 @@ attribute :enabled, :default => 1
 attribute :type, :kind_of => String, :default => nil
 attribute :failovermethod, :kind_of => String, :default => nil
 attribute :bootstrapurl, :kind_of => String, :default => nil
+attribute :make_cache, :kind_of => [TrueClass, FalseClass], :default => true
+attribute :includepkgs, :kind_of => String, :default => nil
 
 def initialize(*args)
   super
