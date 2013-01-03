@@ -27,7 +27,7 @@ define :apache_module, :enable => true, :conf => false do
     apache_conf params[:name]
   end
 
-  if platform?("redhat", "centos", "scientific", "fedora", "arch", "suse", "amazon", "freebsd")
+  if platform_family?("rhel", "fedora", "arch", "suse", "freebsd")
     file "#{node['apache']['dir']}/mods-available/#{params[:name]}.load" do
       content "LoadModule #{params[:name]}_module #{params[:module_path]}\n"
       mode 0644
@@ -39,8 +39,8 @@ define :apache_module, :enable => true, :conf => false do
       command "/usr/sbin/a2enmod #{params[:name]}"
       notifies :restart, resources(:service => "apache2")
       not_if do (::File.symlink?("#{node['apache']['dir']}/mods-enabled/#{params[:name]}.load") and
-            ((::File.exists?("#{node['apache']['dir']}/mods-available/#{params[:name]}.conf"))?
-              (::File.symlink?("#{node['apache']['dir']}/mods-enabled/#{params[:name]}.conf")):(true)))
+        ((::File.exists?("#{node['apache']['dir']}/mods-available/#{params[:name]}.conf"))?
+          (::File.symlink?("#{node['apache']['dir']}/mods-enabled/#{params[:name]}.conf")):(true)))
       end
     end
   else
