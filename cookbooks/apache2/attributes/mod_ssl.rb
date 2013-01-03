@@ -1,14 +1,13 @@
 #
-# Cookbook Name:: apache2
-# Recipe:: log_config
-#
-# Copyright 2008-2009, Opscode, Inc.
+# Author:: Nathan L Smith <nlloyds@gmail.com>
+# Copyright:: Copyright (c) 2012, Opscode, Inc.
+# License:: Apache License, Version 2.0
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
 # You may obtain a copy of the License at
 #
-#     http://www.apache.org/licenses/LICENSE-2.0
+#    http://www.apache.org/licenses/LICENSE-2.0
 #
 # Unless required by applicable law or agreed to in writing, software
 # distributed under the License is distributed on an "AS IS" BASIS,
@@ -17,8 +16,4 @@
 # limitations under the License.
 #
 
-if platform_family?("rhel", "fedora", "suse", "arch", "freebsd")
-  apache_module "log_config"
-else
-  include_recipe "apache2"
-end
+default['apache']['mod_ssl']['cipher_suite'] = 'RC4-SHA:HIGH:!ADH'

@@ -1,3 +1,35 @@
+## v1.4.0:
+
+* [COOK-1456] - iptables enhancements
+* [COOK-1473] - apache2 does not disable default site when setting
+  "`default_site_enabled`" back to false
+* [COOK-1824] - the apache2 cookbook needs to specify which binary is
+  used on rhel platform
+* [COOK-1916] - Download location wrong for apache2 `mod_auth_openid`
+  >= 0.7
+* [COOK-1917] - Improve `mod_auth_openid` recipe to handle module
+  upgrade more gracefully
+* [COOK-2029] - apache2 restarts on every run on RHEL and friends,
+  generate-module-list on every run.
+* [COOK-2036] - apache2: Cookbook style
+
+## v1.3.2:
+
+* [COOK-1804] - fix `web_app` definition parameter so site can be
+  disabled.
+
+## v1.3.0:
+
+* [COOK-1738] - Better configuration for `mod_include` and some
+  overrides in `web_app` definition
+* [COOK-1470] - Change SSL Ciphers to Mitigate BEAST attack
+
+## v1.2.0:
+
+* [COOK-692] - delete package conf.d files in module recipes, for EL
+* [COOK-1693] - Foodcritic finding for unnecessary string interpolation
+* [COOK-1757] - platform_family and better style / usage practices
+
 ## v1.1.16:
 
 re-releasing as .16 due to error on tag 1.1.14
